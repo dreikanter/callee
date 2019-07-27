@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     callee (0.1.0)
-      dry-initializer (~> 3.0)
+      dry-initializer (>= 2.5, < 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -88,9 +88,9 @@ DEPENDENCIES
   bundler (~> 2.0)
   callee!
   guard (~> 2.15)
-  guard-minitest (~> 2.4.6)
+  guard-minitest (~> 2.4, >= 2.4.6)
   minitest (~> 5.0)
-  minitest-reporters (~> 1.3.6)
+  minitest-reporters (~> 1.3, >= 1.3.6)
   pry (~> 0.12.2)
   rake (~> 10.0)
   rb-readline (~> 0.5.5)
