@@ -1,8 +1,6 @@
 # Callee
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/callee`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem helps to define callable classes with strict params specification.
 
 ## Installation
 
@@ -22,7 +20,42 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To make a class callable, you need to include `Callee` mixin and implement `call` instance method. Use [dry-initializer DSL](https://dry-rb.org/gems/dry-initializer/optionals-and-defaults/) to specify calling parameters and options if necessary. Here is a basic usage example:
+
+``` ruby
+class SumService
+  include Callee
+
+  param :a
+  param :b
+
+  def call
+    a + b
+  end
+end
+
+SumService.call(1, 1) # Will return 2
+```
+
+And one more example, to demonstrate optional params with default values:
+
+``` ruby
+class GreetingService
+  include Callee
+
+  option :greeting, optional: true, default: proc { 'Hello' }
+  option :name, optional: true
+
+  def call
+    "#{[greeting, name].compact.join(', ')}!"
+  end
+end
+
+GreetingService.call # Will return "Hello!"
+GreetingService.call(name: 'Probert') # Will return "Hello, Probert!"
+```
+
+Type constraints and coercion will also work, as usual, just make sure to include `dry-types` (here are [some examples)](https://dry-rb.org/gems/dry-initializer/type-constraints/)).
 
 ## Development
 
