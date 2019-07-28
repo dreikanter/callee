@@ -1,5 +1,7 @@
 # Callee
 
+[![Build Status](https://travis-ci.org/dreikanter/callee.svg?branch=master)](https://travis-ci.org/dreikanter/callee)
+
 This gem helps to define callable classes with strict params specification.
 
 ## Installation
