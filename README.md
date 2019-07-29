@@ -25,7 +25,7 @@ Or install it yourself as:
 To make a class callable, you need to include `Callee` mixin and implement `call` instance method. Use [dry-initializer DSL](https://dry-rb.org/gems/dry-initializer/optionals-and-defaults/) to specify calling parameters and options if necessary. Here is a basic usage example:
 
 ``` ruby
-class SumService
+class Sum
   include Callee
 
   param :a
@@ -36,13 +36,13 @@ class SumService
   end
 end
 
-SumService.call(1, 1) # Will return 2
+Sum.call(1, 1)  # => 2
 ```
 
-And one more example, to demonstrate optional params with default values:
+Use optional params with default values:
 
 ``` ruby
-class GreetingService
+class Greet
   include Callee
 
   option :greeting, optional: true, default: proc { 'Hello' }
@@ -53,11 +53,55 @@ class GreetingService
   end
 end
 
-GreetingService.call # Will return "Hello!"
-GreetingService.call(name: 'Probert') # Will return "Hello, Probert!"
+Greet.call  # => "Hello!"
+Greet.call(name: 'Probert')  # => "Hello, Probert!"
 ```
 
-Type constraints and coercion will also work, as usual, just make sure to include `dry-types` (here are [some examples)](https://dry-rb.org/gems/dry-initializer/type-constraints/)).
+Callable class may be used as a `Proc`:
+
+``` ruby
+class Power
+  include Callee
+
+  param :value
+
+  def call
+    value * value
+  end
+end
+
+values = [1, 2, 3]
+
+# Compact notation for values.map { |value| Power.call(value) }
+values.map(&Power)  # => [1, 4, 9]
+```
+
+Since Callee mixin inherits `dry-initializer` DSL, type constraints and coercion will also work, as usual. Just make sure to include `dry-types`:
+
+``` ruby
+require "dry-types"
+
+class StrictPower
+  include Callee
+
+  param :value, type: Dry::Types["strict.integer"]
+
+  def call
+    value * value
+  end
+end
+
+class CoerciblePower < StrictPower
+  param :value, type: Dry::Types["coercible.integer"]
+end
+
+string_values = %w[1 2 3]
+
+pp string_values.map(&StrictPower)  # Will raise Dry::Types::ConstraintError
+pp string_values.map(&CoerciblePower)  # => [1, 4, 9]
+```
+
+See [more examples](https://dry-rb.org/gems/dry-initializer/type-constraints/) in dry-rb docs.
 
 ## Development
 

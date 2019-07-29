@@ -11,6 +11,10 @@ module Callee
     def call(*args, **kwargs)
       new(*args, **kwargs).call
     end
+
+    def to_proc
+      method(:call).to_proc
+    end
   end
 
   def call

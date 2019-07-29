@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    callee (0.1.2)
+    callee (0.1.3)
       dry-initializer (>= 2.5, < 4.0)
 
 GEM

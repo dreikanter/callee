@@ -1,4 +1,4 @@
-class Callable
+class BasicCallable
   include Callee
 
   param :result
