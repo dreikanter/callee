@@ -23,6 +23,10 @@ class BasicCallableTest < Minitest::Test
     assert_equal(sample_param, subject.call(sample_param))
   end
 
+  def test_requires_param
+    assert_raises(ArgumentError) { subject.call }
+  end
+
   def test_to_proc
     assert(subject.to_proc.is_a?(Proc))
   end

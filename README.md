@@ -97,8 +97,8 @@ end
 
 string_values = %w[1 2 3]
 
-pp string_values.map(&StrictPower)  # Will raise Dry::Types::ConstraintError
-pp string_values.map(&CoerciblePower)  # => [1, 4, 9]
+string_values.map(&StrictPower)  # Will raise Dry::Types::ConstraintError
+string_values.map(&CoerciblePower)  # => [1, 4, 9]
 ```
 
 See [more examples](https://dry-rb.org/gems/dry-initializer/type-constraints/) in dry-rb docs.
