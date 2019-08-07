@@ -46,4 +46,9 @@ class BasicCallableTest < Minitest::Test
   def sample_params
     Array.new(SAMPLES_AMOUNT) { Object.new }
   end
+
+  def test_nil_param
+    result = subject.call(nil)
+    assert_nil(result)
+  end
 end

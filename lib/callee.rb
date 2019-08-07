@@ -19,12 +19,12 @@ module Callee
     private
 
     def create_callable(params, options)
-      has_params = params.any?
-      has_options = options.any?
-      return new unless has_params || has_options
-      return new(*params) unless has_options
-      return new(**options) unless has_params
-      new(*params, **options)
+      has_params = !params.empty?
+      has_options = !options.empty?
+      return new(*params, **options) if has_params && has_options
+      return new(*params) if has_params
+      return new(**options) if has_options
+      new
     end
   end
 
