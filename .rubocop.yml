@@ -12,3 +12,6 @@ AllCops:
     - 'Gemfile'
     - 'tmp/**/*'
     - 'vendor/**/*'
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: no_comma
