@@ -25,18 +25,24 @@ Or install it yourself as:
 To make a class callable, you need to include `Callee` mixin and implement `call` instance method. Use [dry-initializer DSL](https://dry-rb.org/gems/dry-initializer/optionals-and-defaults/) to specify calling parameters and options if necessary. Here is a basic usage example:
 
 ``` ruby
-class Sum
+class Power
   include Callee
 
-  param :a
-  param :b
+  param :value
 
   def call
-    a + b
+    value * value
   end
 end
 
-Sum.call(1, 1)  # => 2
+Power.call(1, 1)  # => 2
+```
+
+Callable class may be used as a Proc. Compact notation in the next example is identical to `values.map { |value| Power.call(value) }`
+
+``` ruby
+values = [1, 2, 3]
+values.map(&Power)  # => [1, 4, 9]
 ```
 
 Use optional params with default values:
@@ -55,25 +61,6 @@ end
 
 Greet.call  # => "Hello!"
 Greet.call(name: 'Probert')  # => "Hello, Probert!"
-```
-
-Callable class may be used as a `Proc`:
-
-``` ruby
-class Power
-  include Callee
-
-  param :value
-
-  def call
-    value * value
-  end
-end
-
-values = [1, 2, 3]
-
-# Compact notation for values.map { |value| Power.call(value) }
-values.map(&Power)  # => [1, 4, 9]
 ```
 
 Since Callee mixin inherits `dry-initializer` DSL, type constraints and coercion will also work, as usual. Just make sure to include `dry-types`:
