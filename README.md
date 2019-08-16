@@ -35,7 +35,7 @@ class Power
   end
 end
 
-Power.call(1, 1)  # => 2
+Power.call(2)  # => 4
 ```
 
 Callable class may be used as a Proc. Compact notation in the next example is identical to `values.map { |value| Power.call(value) }`
