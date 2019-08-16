@@ -28,39 +28,25 @@ To make a class callable, you need to include `Callee` mixin and implement `call
 class Power
   include Callee
 
-  param :value
+  # Required parameter
+  param :base
+  
+  # Option with a default value
+  option :exponent, optional: true, default: -> { 2 }
 
   def call
-    value * value
+    base.pow(exponent)
   end
 end
 
 Power.call(2)  # => 4
+Power.call(2, exponent: 10)  # => 1024
 ```
 
-Callable class may be used as a Proc. Compact notation in the next example is identical to `values.map { |value| Power.call(value) }`
+Callable class may be used as a Proc. Compact notation in the next example is identical to `[1, 2, 3].map { |value| Power.call(value) }`
 
 ``` ruby
-values = [1, 2, 3]
-values.map(&Power)  # => [1, 4, 9]
-```
-
-Use optional params with default values:
-
-``` ruby
-class Greet
-  include Callee
-
-  option :greeting, optional: true, default: proc { 'Hello' }
-  option :name, optional: true
-
-  def call
-    "#{[greeting, name].compact.join(', ')}!"
-  end
-end
-
-Greet.call  # => "Hello!"
-Greet.call(name: 'Probert')  # => "Hello, Probert!"
+[1, 2, 3].map(&Power)  # => [1, 4, 9]
 ```
 
 Since Callee mixin inherits `dry-initializer` DSL, type constraints and coercion will also work, as usual. Just make sure to include `dry-types`:
@@ -71,13 +57,16 @@ require "dry-types"
 class StrictPower
   include Callee
 
-  param :value, type: Dry::Types["strict.integer"]
+  param :base, type: Dry::Types["strict.integer"]
+  option :exponent, type: Dry::Types["strict.integer"], optional: true, default: -> { 2 }
 
   def call
-    value * value
+    base.pow(exponent)
   end
 end
 
+# Let's inherit StrictPower params definition
+# and override "base" with more forgiving constraint
 class CoerciblePower < StrictPower
   param :value, type: Dry::Types["coercible.integer"]
 end
