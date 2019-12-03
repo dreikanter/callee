@@ -19,7 +19,7 @@ class AdvancedCallableTest < Minitest::Test
   end
 
   def test_accept_undefined_option
-    subject.call(Object.new, option: Object.new, undfined_option: Object.new)
+    subject.call(Object.new, option: Object.new, undefined_option: Object.new)
   end
 
   def test_bypass_arguments
@@ -33,5 +33,11 @@ class AdvancedCallableTest < Minitest::Test
   def test_default_option
     result = subject.call(Object.new)
     assert_equal(subject::DEFAULT_OPTION_VALUE, result[:option])
+  end
+
+  def test_bypass_block
+    block = -> {}
+    result = subject.call(Object.new, &block)
+    assert_equal(block, result[:block])
   end
 end

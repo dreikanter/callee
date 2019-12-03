@@ -8,8 +8,8 @@ module Callee
   end
 
   module ClassMethods
-    def call(*params, **options)
-      create_callable(params, options).call
+    def call(*params, **options, &block)
+      create_callable(params, options).call(&block)
     end
 
     def to_proc

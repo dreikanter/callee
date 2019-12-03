@@ -6,10 +6,11 @@ class AdvancedCallable
   param :param
   option :option, optional: true, default: -> { DEFAULT_OPTION_VALUE }
 
-  def call
+  def call(&block)
     {
       param: param,
-      option: option
+      option: option,
+      block: block
     }
   end
 end
