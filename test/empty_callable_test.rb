@@ -7,6 +7,6 @@ class EmptyCallableTest < Minitest::Test
   end
 
   def test_is_abstract
-    assert_raises(NotImplementedError) { subject.call }
+    assert_raises(RuntimeError) { subject.call }
   end
 end

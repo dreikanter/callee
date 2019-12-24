@@ -6,10 +6,6 @@ class BasicCallableTest < Minitest::Test
     ::BasicCallable
   end
 
-  def test_version
-    refute_nil(::Callee::VERSION)
-  end
-
   def test_class_is_callable
     subject.respond_to?(:call)
   end
