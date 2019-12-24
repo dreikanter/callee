@@ -9,7 +9,7 @@ module Callee
 
   module ClassMethods
     def call(*params, **options, &block)
-      new(*params, options).call(&block)
+      new(*params, **options).call(&block)
     end
 
     def to_proc
