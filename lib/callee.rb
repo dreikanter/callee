@@ -9,22 +9,11 @@ module Callee
 
   module ClassMethods
     def call(*params, **options, &block)
-      create_callable(params, options).call(&block)
+      new(*params, options).call(&block)
     end
 
     def to_proc
       method(:call).to_proc
-    end
-
-    private
-
-    def create_callable(params, options)
-      has_params = !params.empty?
-      has_options = !options.empty?
-      return new(*params, **options) if has_params && has_options
-      return new(*params) if has_params
-      return new(**options) if has_options
-      new
     end
   end
 

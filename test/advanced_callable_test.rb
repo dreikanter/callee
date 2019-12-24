@@ -6,10 +6,6 @@ class AdvancedCallableTest < Minitest::Test
     ::AdvancedCallable
   end
 
-  def test_requires_param
-    assert_raises(ArgumentError) { subject.call }
-  end
-
   def test_accept_param
     subject.call(Object.new)
   end
