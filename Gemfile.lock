@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    callee (0.3.0)
+    callee (0.3.2)
       dry-initializer (>= 2.5, < 4.0)
 
 GEM
@@ -91,12 +91,12 @@ DEPENDENCIES
   guard-minitest (~> 2.4, >= 2.4.6)
   minitest (~> 5.0)
   minitest-reporters (~> 1.3, >= 1.3.6)
-  pry (~> 0.12.2)
+  pry (~> 0.12)
   rake (~> 10.0)
-  rb-readline (~> 0.5.5)
-  rubocop (~> 0.72.0)
+  rb-readline (~> 0.5)
+  rubocop (~> 0.72)
   simplecov (~> 0.17)
-  standard (~> 0.1.0)
+  standard (~> 0.1)
 
 BUNDLED WITH
    2.0.2
