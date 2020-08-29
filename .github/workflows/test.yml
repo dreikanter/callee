@@ -18,7 +18,7 @@ jobs:
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
+        ruby-version: 2.7.x
     - name: Run Rubocop
       run: |
         gem install bundler
@@ -32,7 +32,7 @@ jobs:
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
+        ruby-version: 2.7.x
     - name: Run tests
       run: |
         gem install bundler
