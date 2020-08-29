@@ -27,11 +27,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "dry-initializer", ">= 2.5", "< 4.0"
 
   spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "guard", "~> 2.15"
-  spec.add_development_dependency "guard-minitest", "~> 2.4", ">= 2.4.6"
   spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "minitest-reporters", "~> 1.3", ">= 1.3.6"
-  spec.add_development_dependency "pry", "~> 0.12"
+  spec.add_development_dependency "pry", "~> 0.13"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rb-readline", "~> 0.5"
   spec.add_development_dependency "rubocop", "~> 0.89"
