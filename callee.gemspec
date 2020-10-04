@@ -31,7 +31,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~> 0.13"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rb-readline", "~> 0.5"
-  spec.add_development_dependency "rubocop", "~> 0.89"
+  spec.add_development_dependency "reek", "~> 6.0"
+  spec.add_development_dependency "rubocop", "~> 0.92"
   spec.add_development_dependency "simplecov", "~> 0.19"
-  spec.add_development_dependency "standard", "~> 0.5"
+  spec.add_development_dependency "standard", "~> 0.7"
 end
