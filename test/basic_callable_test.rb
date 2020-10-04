@@ -7,11 +7,11 @@ class BasicCallableTest < Minitest::Test
   end
 
   def test_class_is_callable
-    subject.respond_to?(:call)
+    subject.call
   end
 
   def test_instance_is_callable
-    subject.new(nil).respond_to?(:call)
+    subject.new(nil).call
   end
 
   def test_call_method_works
