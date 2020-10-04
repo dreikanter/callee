@@ -35,6 +35,8 @@ class BasicCallableTest < Minitest::Test
 
   SAMPLES_AMOUNT = 3
 
+  private
+
   def sample_params
     Array.new(SAMPLES_AMOUNT) { Object.new }
   end
