@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-To make a class callable, you need to include `Callee` mixin and implement `call` instance method. Use [dry-initializer DSL](https://dry-rb.org/gems/dry-initializer/optionals-and-defaults/) to specify calling parameters and options if necessary. Here is a basic usage example:
+To make a class callable, you need to include `Callee` mixin and implement `call` instance method. Use [dry-initializer DSL](https://dry-rb.org/gems/dry-initializer/3.0/) to specify calling parameters and options if necessary. Here is a basic usage example:
 
 ``` ruby
 class Power
