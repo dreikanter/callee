@@ -15,10 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Ruby
-      uses: actions/setup-ruby@v2
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2.x
+        ruby-version: "3.2.2"
+        bundler-cache: true
+
     - name: Run Rubocop
       run: |
         gem install bundler
@@ -29,10 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Ruby
-      uses: actions/setup-ruby@v2
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2.x
+        ruby-version: "3.2.2"
+        bundler-cache: true
+
     - name: Run Reek
       run: |
         gem install bundler
@@ -43,10 +49,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Ruby
-      uses: actions/setup-ruby@v2
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2.x
+        ruby-version: "3.2.2"
+        bundler-cache: true
+
     - name: Run tests
       run: |
         gem install bundler

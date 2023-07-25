@@ -15,10 +15,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
+
     - name: Set up Ruby
-      uses: actions/setup-ruby@v2
+      uses: ruby/setup-ruby@v1
       with:
-        version: 3.2.x
+        ruby-version: "3.2.2"
+        bundler-cache: true
 
     - name: Publish to GPR
       run: |
