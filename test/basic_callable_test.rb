@@ -7,7 +7,7 @@ class BasicCallableTest < Minitest::Test
   end
 
   def test_class_is_callable
-    subject.call
+    subject.call(nil)
   end
 
   def test_instance_is_callable

@@ -1,36 +1,30 @@
 PATH
   remote: .
   specs:
-    callee (0.3.5)
-      dry-initializer (>= 2.5, < 4.0)
+    callee (0.3.6)
+      dry-initializer (>= 2.5)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    ast (2.4.1)
-    coderay (1.1.3)
-    docile (1.3.2)
-    dry-initializer (3.0.4)
+    ast (2.4.2)
+    docile (1.4.0)
+    dry-initializer (3.1.1)
     kwalify (0.7.2)
-    method_source (1.0.0)
-    minitest (5.14.2)
-    parallel (1.19.2)
-    parser (2.7.1.5)
+    minitest (5.18.1)
+    parallel (1.23.0)
+    parser (3.2.2.3)
       ast (~> 2.4.1)
-    pry (0.13.1)
-      coderay (~> 1.1)
-      method_source (~> 1.0)
-    psych (3.1.0)
-    rainbow (3.0.0)
-    rake (13.0.1)
-    rb-readline (0.5.5)
-    reek (6.0.1)
+      racc
+    racc (1.7.1)
+    rainbow (3.1.1)
+    rake (13.0.6)
+    reek (6.1.4)
       kwalify (~> 0.7.0)
-      parser (>= 2.5.0.0, < 2.8, != 2.5.1.1)
-      psych (~> 3.1.0)
+      parser (~> 3.2.0)
       rainbow (>= 2.0, < 4.0)
-    regexp_parser (1.8.1)
-    rexml (3.2.4)
+    regexp_parser (2.8.1)
+    rexml (3.2.5)
     rubocop (0.92.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -40,35 +34,34 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.7.1)
-      parser (>= 2.7.1.5)
+    rubocop-ast (1.29.0)
+      parser (>= 3.2.1.0)
     rubocop-performance (1.8.1)
       rubocop (>= 0.87.0)
       rubocop-ast (>= 0.4.0)
-    ruby-progressbar (1.10.1)
-    simplecov (0.19.0)
+    ruby-progressbar (1.13.0)
+    simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     standard (0.7)
       rubocop (= 0.92)
       rubocop-performance (= 1.8.1)
-    unicode-display_width (1.7.0)
+    unicode-display_width (1.8.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 2.0)
+  bundler (~> 2.4)
   callee!
   minitest (~> 5.0)
-  pry (~> 0.13)
   rake (~> 13.0)
-  rb-readline (~> 0.5)
-  reek (~> 6.0)
-  rubocop (~> 0.92)
+  reek
   simplecov (~> 0.19)
-  standard (~> 0.7)
+  standard
 
 BUNDLED WITH
-   2.1.4
+   2.4.17
