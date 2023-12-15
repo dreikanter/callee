@@ -12,11 +12,15 @@ gem 'callee'
 
 And then execute:
 
-    $ bundle
+```sh
+bundle
+```
 
 Or install it yourself as:
 
-    $ gem install callee
+```sh
+gem install callee
+```
 
 ## Usage
 
